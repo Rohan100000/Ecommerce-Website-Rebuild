@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Middle Links */}
-        <div className="flex space-x-8">
+        <div className="flex space-x-12 absolute left-[36%]">
           <a className="text-[#c6b79b] font-syne text-sm uppercase hover:text-white transition duration-300" href="/shop/mens">MEN</a>
           <a className="text-[#c6b79b] font-syne text-sm uppercase hover:text-white transition duration-300" href="/shop/womens">WOMEN</a>
           <a className="text-[#c6b79b] font-syne text-sm uppercase hover:text-white transition duration-300" href="/shop/kids">KIDS</a>
@@ -37,8 +37,10 @@ const Navbar: React.FC = () => {
         {/* Search, Cart, and Login/Profile Section */}
         <div className="flex items-center space-x-4">
           {/* Search Bar */}
-          <div className={`${searchVisible ? 'flex' : 'hidden'} items-center bg-white rounded-full px-3`}>
-            <CiSearch onClick={closesearch} className="focus:outline-none cursor-pointer text-3xl"/>
+          <div
+            className={`flex items-center bg-white rounded-full px-3 transition-all duration-300 ease-in-out ${searchVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+          >
+            <CiSearch onClick={closesearch} className="focus:outline-none cursor-pointer text-3xl" />
             <input
               type="text"
               className="ml-2 p-1 focus:outline-none"
@@ -48,12 +50,12 @@ const Navbar: React.FC = () => {
 
           {/* Search Icon Button */}
           {!searchVisible && (
-              <CiSearch onClick={clicksearch} className="focus:outline-none cursor-pointer text-[#c6b79b] text-3xl"/>
+            <CiSearch onClick={clicksearch} className="focus:outline-none cursor-pointer text-[#c6b79b] text-3xl" />
           )}
 
           {/* Cart Icon */}
           <div>
-            <CiShoppingCart className="text-[#c6b79b] text-3xl"/>
+            <CiShoppingCart className="text-[#c6b79b] text-3xl" />
           </div>
 
           {/* User Profile or Login */}
